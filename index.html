@@ -128,7 +128,10 @@ font-size:24px;
 <div id="volume" class="value">Loading...</div>
 
 </div>
-
+<div class="card">
+    <div class="label">Total Supply</div>
+    <div id="totalsupply" class="value">Loading...</div>
+</div>
 <div class="card">
 
 <div class="label">24H Change</div>
@@ -213,7 +216,12 @@ document.getElementById("marketcap").innerHTML=
 
 document.getElementById("supply").innerHTML=
 Math.round(d.market_data.circulating_supply).toLocaleString()+" BTC";
+const totalSupply = d.market_data.total_supply;
 
+document.getElementById("totalsupply").innerHTML =
+    totalSupply
+        ? Math.round(totalSupply).toLocaleString() + " BTC"
+        : "∞";
 }catch(e){
 
 console.log(e);
