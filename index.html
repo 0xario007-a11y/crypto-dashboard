@@ -1,16 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BTC Dashboard</title>
+<title>Bitcoin Dashboard</title>
+
+<style>
+body{
+    margin:0;
+    background:#111827;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+h2{
+    text-align:center;
+    margin:20px 0;
+}
+
+.chart{
+    width:95%;
+    height:700px;
+    margin:auto;
+}
+</style>
+
 </head>
 
-<body style="background:#111;color:white;font-family:Arial;text-align:center">
+<body>
 
-<h1>Bitcoin Dashboard</h1>
+<h2>Bitcoin Live Chart</h2>
 
-<p>در مرحله بعد قیمت، حجم و نمودار را اضافه می‌کنیم.</p>
+<div class="chart">
+<div class="tradingview-widget-container">
+  <div id="tradingview_btc"></div>
+</div>
+</div>
+
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+<script>
+new TradingView.widget({
+  "width":"100%",
+  "height":700,
+  "symbol":"BINANCE:BTCUSDT",
+  "interval":"240",
+  "timezone":"Etc/UTC",
+  "theme":"dark",
+  "style":"1",
+  "locale":"en",
+  "toolbar_bg":"#111827",
+  "enable_publishing":false,
+  "allow_symbol_change":true,
+  "container_id":"tradingview_btc"
+});
+</script>
 
 </body>
 </html>
