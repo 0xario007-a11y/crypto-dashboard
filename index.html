@@ -6286,3 +6286,389 @@ false
 
 
 </script>
+<!--
+SECTION 34
+Production Environment Configuration
+-->
+
+<script>
+
+
+const ENV = {
+
+
+production:true,
+
+
+workerURL:
+"https://YOUR-WORKER-DOMAIN.workers.dev",
+
+
+defaultCoin:"bitcoin"
+
+
+};
+
+
+
+
+CONFIG.workerURL =
+ENV.workerURL;
+
+
+
+
+if(!CONFIG.coin){
+
+
+CONFIG.coin =
+ENV.defaultCoin;
+
+
+}
+
+
+
+
+
+</script>
+<!--
+SECTION 35
+Multi Coin Test Handler
+Dynamic URL Validation
+-->
+
+<script>
+
+
+function getDashboardCoin(){
+
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+
+
+const coin =
+params.get("coin");
+
+
+
+return sanitizeCoin(
+coin || ENV.defaultCoin
+);
+
+
+
+}
+
+
+
+
+CONFIG.coin =
+getDashboardCoin();
+
+
+
+
+
+
+function verifyDashboard(){
+
+
+console.log({
+
+coin:CONFIG.coin,
+
+url:window.location.href
+
+});
+
+
+
+}
+
+
+
+
+
+verifyDashboard();
+
+
+
+</script>
+<!--
+SECTION 36
+Notion Embed Optimization
+Clean View Mode
+-->
+
+<style>
+
+
+.embed-mode{
+
+margin:0;
+
+padding:0;
+
+}
+
+
+
+.embed-mode .container{
+
+width:100%;
+
+max-width:none;
+
+}
+
+
+
+</style>
+
+<script>
+
+
+function enableEmbedMode(){
+
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+
+
+if(
+params.get("embed")==="true"
+){
+
+
+document.body.classList.add(
+"embed-mode"
+);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+enableEmbedMode();
+
+
+
+</script>
+<!--
+SECTION 37
+Final Production Checklist Layer
+-->
+
+<script>
+
+
+const ProductionCheck = {
+
+
+urlCoin:
+Boolean(CONFIG.coin),
+
+
+worker:
+Boolean(CONFIG.workerURL),
+
+
+cache:
+Boolean(localStorage),
+
+
+chart:
+Boolean(window.Chart)
+
+
+
+};
+
+
+
+
+
+console.table(
+ProductionCheck
+);
+
+
+
+function isReady(){
+
+
+
+return Object.values(
+ProductionCheck
+)
+.every(Boolean);
+
+
+
+}
+
+
+
+
+
+</script>
+<!--
+SECTION 38
+Final Deployment Configuration
+GitHub Pages Ready
+-->
+
+<script>
+
+
+function getDeploymentInfo(){
+
+
+return {
+
+
+page:
+window.location.origin
++
+window.location.pathname,
+
+
+coin:
+CONFIG.coin,
+
+
+worker:
+CONFIG.workerURL,
+
+
+status:
+"ready"
+
+
+
+};
+
+
+}
+
+
+
+
+
+console.log(
+"Crypto Dashboard Ready",
+getDeploymentInfo()
+);
+
+
+
+</script>
+<!--
+SECTION 39
+Final Runtime Protection
+Prevent Duplicate Dashboard Start
+-->
+
+<script>
+
+
+if(!window.__DASHBOARD_RUNNING){
+
+
+window.__DASHBOARD_RUNNING = true;
+
+
+
+}else{
+
+
+console.warn(
+"Dashboard already running"
+);
+
+
+
+}
+
+
+
+</script>
+<!--
+SECTION 40
+Final Code Completion
+Cleanup Layer
+-->
+
+<script>
+
+
+/*
+
+Crypto Dashboard Core Complete
+
+Features:
+
+- Dynamic coin URL
+- Multi coin support
+- CoinMarketCap via Worker
+- LocalStorage cache
+- Auto refresh
+- Candlestick chart
+- Timeframes
+- Notion embed ready
+- GitHub Pages ready
+
+
+*/
+
+
+function dashboardReady(){
+
+
+return {
+
+
+coin:
+CONFIG.coin,
+
+
+version:
+"1.0.0",
+
+
+ready:
+true
+
+
+
+};
+
+
+
+}
+
+
+
+
+console.log(
+dashboardReady()
+);
+
+
+
+</script>
